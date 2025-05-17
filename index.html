@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stranger Video Chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Landing Screen -->
+        <div id="landing" class="screen">
+            <h1>Stranger Video Chat</h1>
+            <div class="form-group">
+                <label>I am:</label>
+                <select id="myGender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>I want to talk to:</label>
+                <select id="targetGender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <button id="startBtn">Start Chatting</button>
+            <p class="disclaimer">Please be respectful. Misuse may result in being banned.</p>
+        </div>
+
+        <!-- Connecting Screen -->
+        <div id="connecting" class="screen hidden">
+            <h2>Finding someone for you...</h2>
+            <div class="spinner"></div>
+            <p id="statusText">Connecting to server</p>
+            <button id="cancelBtn">Cancel</button>
+        </div>
+
+        <!-- Chat Screen -->
+        <div id="chat" class="screen hidden">
+            <div class="video-container">
+                <video id="remoteVideo" autoplay playsinline></video>
+                <video id="localVideo" autoplay playsinline muted></video>
+            </div>
+            
+            <div class="chat-container">
+                <div id="messages"></div>
+                <div class="message-input">
+                    <input type="text" id="messageInput" placeholder="Type your message...">
+                    <button id="sendBtn">Send</button>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <button id="nextBtn">Next Stranger</button>
+                <button id="toggleVideoBtn">Video: ON</button>
+                <button id="toggleAudioBtn">Mic: ON</button>
+                <button id="reportBtn">Report</button>
+            </div>
+        </div>
+
+        <!-- Disconnected Screen -->
+        <div id="disconnected" class="screen hidden">
+            <h2>Disconnected</h2>
+            <p id="disconnectReason">Your partner has left the chat.</p>
+            <button id="reconnectBtn">Find New Stranger</button>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
