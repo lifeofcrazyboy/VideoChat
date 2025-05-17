@@ -1,7 +1,7 @@
 {
-  "name": "omegle-clone",
+  "name": "stranger-video-chat",
   "version": "1.0.0",
-  "description": "A simple Omegle-style video chat application",
+  "description": "Omegle-style video chat with gender matching",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -11,7 +11,7 @@
     "express": "^4.18.2",
     "socket.io": "^4.7.2"
   },
-  "devDependencies": {
-    "nodemon": "^3.0.2"
+  "engines": {
+    "node": "16.x"
   }
 }
